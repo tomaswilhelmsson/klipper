@@ -6,7 +6,8 @@
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
 import logging, os, ast
-from . import hd44780, hd44780_spi, st7920, st7789v, st7796s, uc1701, menu
+from . import hd44780, hd44780_spi, st7920, uc1701, menu
+from . import st7796s
 
 # Normal time between each screen redraw
 REDRAW_TIME = 0.500
@@ -15,8 +16,7 @@ REDRAW_MIN_TIME = 0.100
 
 LCD_chips = {
     'st7920': st7920.ST7920, 'emulated_st7920': st7920.EmulatedST7920,
-    'st7796s': st7796s.ST7796S, 
-    'st7789v': st7789v.ST7789V,
+    'st7796s': st7796s.ST7796S,
     'hd44780': hd44780.HD44780, 'uc1701': uc1701.UC1701,
     'ssd1306': uc1701.SSD1306, 'sh1106': uc1701.SH1106,
     'hd44780_spi': hd44780_spi.hd44780_spi

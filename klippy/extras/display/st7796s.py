@@ -726,7 +726,7 @@ class ST7796S(object):
     def build_config(self):
         # st7796s uses same interface as st7789v
         self.mcu.add_config_cmd(
-            "config_ST7788v oid=%u dcx_pin=%s wrx_pin=%s d8_pin=%s"
+            "config_st7789v oid=%u dcx_pin=%s wrx_pin=%s d8_pin=%s"
             " d9_pin=%s d10_pin=%s d11_pin=%s d12_pin=%s d13_pin=%s"
             " d14_pin=%s d15_pin=%s" % (
                 self.oid, self.pins['dcx'], self.pins['wrx'], self.pins['d8'],
@@ -737,7 +737,7 @@ class ST7796S(object):
             )
 
         self.send_cmd = self.mcu.lookup_command(
-            "ST7896v_send_cmd oid=%c data=%*s", cq=self.cmd_queue)
+            "st7789v_send_cmd oid=%c data=%*s", cq=self.cmd_queue)
 
     def send(self, cmds):
         stream = PackBitsStream(self.oid, self.send_cmd)
